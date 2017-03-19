@@ -533,7 +533,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var merge = function() &#123;</div><div class="line">    return Array.prototype.concat.apply([], arguments)</div><div class="line">&#125;</div><div class="line">merge([1,2,4],[3,4],[5,6]);  //[1, 2, 4, 3, 4, 5, 6] 不包含去重</div></pre></td></tr></table></figure>
 </li>
 <li><p>slice,substr和substring的区别：substring是以两个参数中较小一个作为起始位置，较大的参数作为结束位置。当接收的参数是负数时，slice会将它字符串的长度与对应的负数相加，结果作为参数；substr则仅仅是将第一个参数与字符串长度相加后的结果作为第一个参数；substring则干脆将负参数都直接转换为0。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var test = &apos;hello world&apos;;</div><div class="line"> </div><div class="line">alert(test.slice(-3));         //rld</div><div class="line">alert(test.substring(-3));     //hello world</div><div class="line">alert(test.substr(-3));        //rld</div><div class="line"></div><div class="line">alert(test.slice(3,-4));       //lo w</div><div class="line">alert(test.substring(3,-4));   //hel</div><div class="line">alert(test.substr(3,-4));      //空字符串</div></pre></td></tr></table></figure>
+<pre><code>
+   var test = 'hello world';
+
+   alert(test.slice(-3));         //rld
+   alert(test.substring(-3));     //hello world
+   alert(test.substr(-3));        //rld
+
+   alert(test.slice(3,-4));       //lo w
+   alert(test.substring(3,-4));   //hel
+   alert(test.substr(3,-4));      //空字符串
+</code></pre>   
+
 </li>
 </ol>
 
