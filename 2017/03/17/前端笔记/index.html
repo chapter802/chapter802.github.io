@@ -101,7 +101,7 @@ tags:前端笔记
 属性前面的下划线表示只能通过对象方法访问的属性。
 DOM 0级事件后面的事件会覆盖前面的事件；DOM 2级事件则不会覆盖前面的事件。
 indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。注释：indexOf() 方法对大小写敏感！注释：如果要检索的字符串值没有出现，则该方法返回 -">
-<meta property="og:updated_time" content="2017-03-19T10:02:06.000Z">
+<meta property="og:updated_time" content="2017-03-19T10:03:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="title: 前端笔记date: 2017-03-17 09:36:43
@@ -473,7 +473,19 @@ indexOf() 方法可返回某个指定的字符串值在字符串中首次出现�
 <li>中间点号编码  • → &amp;#8226;  上右单引号编码 ’ → &amp;#8217; </li>
 <li><label>标签  for属性与id属性通过相同的值关联起来后,用户点击标注文本也可以选择单选按钮和复选框. </label></li>
 <li>border属性<code>border-radius:20px 0px 20px 0px; /* 顺序: 左上 右上 右下 左下*/</code><br><code>box-shadow: h-shadow v-shadow blur spread color inset;</code></li>
-<li>导航下拉菜单 淡入淡出: </li>
+<li>导航下拉菜单 淡入淡出: <pre><code>&apos;&apos; .nav.menu li ul { 
+&apos;&apos; opacity:0; visibility:hidden; /* hides drop-down */ 
+&apos;&apos; position:absolute; /* position relative to parent menu */
+&apos;&apos; width:12em;
+&apos;&apos; left:0;   /* aligns left of sub-menu to parent */
+&apos;&apos; top:100%; /* aligns bottom of sub-menu to parent */
+&apos;&apos; -webkit-transition: 1s all; /* sets up transition of opacity and    visibility*/
+&apos;&apos; -moz-transition: 1s all;
+</code></pre>‘’    transition: 1s all;<br>‘’ }<br>‘’ nav.menu li:hover &gt; ul { <pre><code>&apos;&apos; opacity:1; 
+&apos;&apos; visibility:visible;
+</code></pre>‘’ }<br>‘’ nav.menu li li {<pre><code>&apos;&apos; float:none; /* kills inherited float - makes list stack */
+</code></pre>‘’ }<br>‘’ .no-csstransitions nav.menu li ul { <pre><code>&apos;&apos; visibility:visible; opacity:1;  display:none; 
+</code></pre>‘’ }<br>‘’ .no-csstransitions nav.menu li:hover &gt; ul { display:block; /<em> </em>/ }<br>‘’     </li>
 </ol>
 
       
