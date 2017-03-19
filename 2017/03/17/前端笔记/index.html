@@ -101,7 +101,7 @@ tags:前端笔记
 属性前面的下划线表示只能通过对象方法访问的属性。
 DOM 0级事件后面的事件会覆盖前面的事件；DOM 2级事件则不会覆盖前面的事件。
 indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。注释：indexOf() 方法对大小写敏感！注释：如果要检索的字符串值没有出现，则该方法返回 -">
-<meta property="og:updated_time" content="2017-03-19T12:31:12.000Z">
+<meta property="og:updated_time" content="2017-03-19T12:34:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="title: 前端笔记date: 2017-03-17 09:36:43
@@ -535,6 +535,12 @@ indexOf() 方法可返回某个指定的字符串值在字符串中首次出现�
 <li>在取得和设置表单控件的值时,最好不要使用.attr()方法。而对于选 项列表,最好连.prop()方法也不要使用。建议使用jQuery提供的.val()方法.</li>
 <li>click事件return false意味着同时调用event.preventDefault()和event. stopPropagation()。 </li>
 <li>.serialize()方法。这个方法作用于一个 jQuery对象,将匹配的DOM元素转换成能够随Ajax请求传递的查询字符串。<br>###jQuery基础教程部分 End</li>
+<li><p>合并数组方法：    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var merge = function() &#123;</div><div class="line">    return Array.prototype.concat.apply([], arguments)</div><div class="line">&#125;</div><div class="line">merge([1,2,4],[3,4],[5,6]);  //[1, 2, 4, 3, 4, 5, 6] 不包含去重</div></pre></td></tr></table></figure>
+</li>
+<li><p>slice,substr和substring的区别：substring是以两个参数中较小一个作为起始位置，较大的参数作为结束位置。当接收的参数是负数时，slice会将它字符串的长度与对应的负数相加，结果作为参数；substr则仅仅是将第一个参数与字符串长度相加后的结果作为第一个参数；substring则干脆将负参数都直接转换为0。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var test = &apos;hello world&apos;;</div><div class="line"> </div><div class="line">alert(test.slice(-3));         //rld</div><div class="line">alert(test.substring(-3));     //hello world</div><div class="line">alert(test.substr(-3));        //rld</div><div class="line"></div><div class="line">alert(test.slice(3,-4));       //lo w</div><div class="line">alert(test.substring(3,-4));   //hel</div><div class="line">alert(test.substr(3,-4));      //空字符串</div></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
