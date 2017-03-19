@@ -456,17 +456,24 @@
 <li><p>首字母下沉css样式 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">h1 + p::first-letter &#123;</div><div class="line">    font-family:times, serif; </div><div class="line">    font-size:-90px; </div><div class="line">    float:left; line-height:.65;</div><div class="line">    padding:.085em 3px 0 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>首字母下沉效果做完了。可是，我希望大号首字母到小号正文之间有一个过渡，所<br>以需要把段落第一行的文本变成小型大写字母。  </p>
-<pre><code>h1 + p::first-line {
-    font-variant:small-caps; 
-    letter-spacing:.15em;
-}
-</code></pre></li>
-<li>css的加号 邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</li>
-<li>导航条啊\<a\>标签让列表行可以点击<br>  <code>.list1 a {display:block; padding:3px 10px;}</code>设置内边距 显示为块元素</a\></li>
-<li><code>.list1 li + li a {border-left:1px solid #aaa;}</code> 第一个li标签没有左边框样式<br> <code>li:last-child a {border-right-style:none;}</code> </li>
-<li>中间点号编码  • → &amp;#8226;  上右单引号编码 ’ → &amp;#8217; </li>
-<li><label>标签  for属性与id属性通过相同的值关联起来后,用户点击标注文本也可以选择单选按钮和复选框. </label></li>
-<li>border属性<code>border-radius:20px 0px 20px 0px; /* 顺序: 左上 右上 右下 左下*/</code><br><code>box-shadow: h-shadow v-shadow blur spread color inset;</code></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">        h1 + p::first-line &#123;</div><div class="line">            font-variant:small-caps; </div><div class="line">            letter-spacing:.15em;</div><div class="line">        &#125;  </div><div class="line">    ```       </div><div class="line">77. css的加号 邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</div><div class="line">78. 导航条啊\&lt;a\&gt;标签让列表行可以点击</div><div class="line">      `.list1 a &#123;display:block; padding:3px 10px;&#125; `设置内边距 显示为块元素</div><div class="line">79. `.list1 li + li a &#123;border-left:1px solid #aaa;&#125;` 第一个li标签没有左边框样式</div><div class="line">     `li:last-child a &#123;border-right-style:none;&#125;` </div><div class="line">80. 中间点号编码  • → &amp;\#8226;  上右单引号编码 ’ → &amp;\#8217; </div><div class="line">81. &lt;label&gt;标签  for属性与id属性通过相同的值关联起来后,用户点击标注文本也可以选择单选按钮和复选框. </div><div class="line">82. border属性`border-radius:20px 0px 20px 0px; /* 顺序: 左上 右上 右下 左下*/ `</div><div class="line">    `box-shadow: h-shadow v-shadow blur spread color inset;`</div><div class="line">83. 导航下拉菜单 淡入淡出</div></pre></td></tr></table></figure>
+<p>.nav.menu li ul { </p>
+<pre><code>opacity:0; visibility:hidden; /* hides drop-down */ 
+position:absolute; /* position relative to parent menu */
+width:12em;
+left:0;   /* aligns left of sub-menu to parent */
+top:100%; /* aligns bottom of sub-menu to parent */
+-webkit-transition: 1s all; /* sets up transition of opacity and    visibility*/
+-moz-transition: 1s all;
+</code></pre><p>   transition: 1s all;<br>}<br>nav.menu li:hover &gt; ul { </p>
+<pre><code>opacity:1; 
+visibility:visible;
+</code></pre><p>}<br>nav.menu li li {</p>
+<pre><code>float:none; /* kills inherited float - makes list stack */
+</code></pre><p>}<br>.no-csstransitions nav.menu li ul { </p>
+<pre><code>visibility:visible; opacity:1;  display:none; 
+</code></pre><p>}<br>.no-csstransitions nav.menu li:hover &gt; ul { display:block; /<em> </em>/ }<br>```   </p>
+</li>
 </ol>
 
           
