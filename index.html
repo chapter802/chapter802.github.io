@@ -471,7 +471,7 @@
 <li><p>响应式设计包含三方面: 媒体查询, 流式布局, 弹性图片.媒体查询可以用两种方式来写: @media规则和 <link>标签的media属性.</p>
 </li>
 <li>通过触摸屏幕其他地方来调用jQuery的noop函数就可以关闭掉下拉菜单了<br>(function(){ $(window).on(‘touchstart’ ,$.noop);})();<br>如果不用jQuery,在<body>标签上添加 ontouchstart=“ ” 也会在用户触摸屏幕其他地方时触发<br>JavaScript运行,从而关闭菜单.</body></li>
-<li>IE浏览器代码块 只有IE才会执行 <figure class="highlight plain"><figcaption><span>lte IE 8]> <!-- IE条件注释--></span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;link src=&quot;ie_only.css&quot; rel=&quot;stylesheet&quot; /&gt; </div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+<li>IE浏览器代码块 只有IE才会执行 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if lte IE 8]&gt; &lt;!-- IE条件注释--&gt;</div><div class="line">&lt;link src=&quot;ie_only.css&quot; rel=&quot;stylesheet&quot; /&gt; </div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 
