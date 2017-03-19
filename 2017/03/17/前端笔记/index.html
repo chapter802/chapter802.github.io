@@ -101,7 +101,7 @@ tags:前端笔记
 属性前面的下划线表示只能通过对象方法访问的属性。
 DOM 0级事件后面的事件会覆盖前面的事件；DOM 2级事件则不会覆盖前面的事件。
 indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。注释：indexOf() 方法对大小写敏感！注释：如果要检索的字符串值没有出现，则该方法返回 -">
-<meta property="og:updated_time" content="2017-03-19T09:27:56.000Z">
+<meta property="og:updated_time" content="2017-03-19T09:31:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="title: 前端笔记date: 2017-03-17 09:36:43
@@ -421,7 +421,11 @@ indexOf() 方法可返回某个指定的字符串值在字符串中首次出现�
 <li>DOM2级事件定义了两个方法,用于处理指定和删除事件处理程序的操作:addEventListener()和removeEventListener().他们接受三个参数:要处理的事件名,作为事件处理程序的函数和一个布尔值.最后这个布尔值如果是true,表示在捕获阶段调用事件处理程序;如果是false,表示在冒泡阶段调用事件处理程序.IE8之前有两个类似的方法attachEvent()和detachEvent(),只支持冒泡.</li>
 <li>addHandler()接收三个参数:要操作的元素, 事件名称,事件处理程序函数.</li>
 <li>匿名函数最大的用途是创建闭包（这是JavaScript语言的特性之一），并且还可以构建命名空间，以减少全局变量的使用。</li>
-<li>if判断条件有几种条件不能做判断a.背景不能做判断 b.color不能做判断 c.相对路径不能做判断。</li>
+<li><p>获取节点的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">\#list &#123;&#125; var oUl = document.getElementById(‘list’);  //  静态方法</div><div class="line">li &#123;&#125; document.getElementsByTagName(‘li’);         //  动态方法</div><div class="line">\#list li &#123;&#125;  var aLi = oUl.getElementsByTagName(‘li’);</div></pre></td></tr></table></figure>
+</li>
+<li><p>if判断条件有几种条件不能做判断a.背景不能做判断 b.color不能做判断 c.相对路径不能做判断。</p>
+</li>
 <li>input 的属性autocomplete 默认为on,其含义代表是否让浏览器自动记录之前输入的值.很多时候，需要对客户的资料进行保密，防止浏览器软件或者恶意插件获取到.可以在input中加入autocomplete=”off” 来关闭记录,系统需要保密的情况下可以使用此参数.</li>
 <li>zoom:1;属性是IE浏览器的专有属性，Firefox等其它浏览器不支持。它可以设置或检索对象的缩放比例。除此之外，它还有其他一些小作用，比如触发ie的hasLayout属性，清除浮动、清除margin的重叠等。但很遗憾的是，它通不过W3C验证．</li>
 <li>背景属性：背景颜色 背景图片 背景是否重复 背景是否随浏览器滚动 背景平位置 背景垂直位置<br><code>background : background-color || background-image || background-repeat     || background-attachment || background-position</code></li>
