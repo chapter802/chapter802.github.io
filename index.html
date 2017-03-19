@@ -467,19 +467,16 @@
 <li>中间点号编码  • → &amp;#8226;  上右单引号编码 ’ → &amp;#8217; </li>
 <li><label>标签  for属性与id属性通过相同的值关联起来后,用户点击标注文本也可以选择单选按钮和复选框. </label></li>
 <li>border属性<code>border-radius:20px 0px 20px 0px; /* 顺序: 左上 右上 右下 左下*/</code><br><code>box-shadow: h-shadow v-shadow blur spread color inset;</code></li>
-<li>导航下拉菜单 淡入淡出: <pre><code>&apos;&apos; .nav.menu li ul { 
-&apos;&apos; opacity:0; visibility:hidden; /* hides drop-down */ 
-&apos;&apos; position:absolute; /* position relative to parent menu */
-&apos;&apos; width:12em;
-&apos;&apos; left:0;   /* aligns left of sub-menu to parent */
-&apos;&apos; top:100%; /* aligns bottom of sub-menu to parent */
-&apos;&apos; -webkit-transition: 1s all; /* sets up transition of opacity and    visibility*/
-&apos;&apos; -moz-transition: 1s all;
-</code></pre>‘’    transition: 1s all;<br>‘’ }<br>‘’ nav.menu li:hover &gt; ul { <pre><code>&apos;&apos; opacity:1; 
-&apos;&apos; visibility:visible;
-</code></pre>‘’ }<br>‘’ nav.menu li li {<pre><code>&apos;&apos; float:none; /* kills inherited float - makes list stack */
-</code></pre>‘’ }<br>‘’ .no-csstransitions nav.menu li ul { <pre><code>&apos;&apos; visibility:visible; opacity:1;  display:none; 
-</code></pre>‘’ }<br>‘’ .no-csstransitions nav.menu li:hover &gt; ul { display:block; /<em> </em>/ }<br>‘’     </li>
+<li>导航下拉菜单 淡入淡出: <pre><code>&lt;code&gt;
+</code></pre>.nav.menu li ul { <pre><code>opacity:0; visibility:hidden; // hides drop-down 
+position:absolute; // position relative to parent menu        left:0;   //aligns left of sub-menu to parent
+top:100%; // aligns bottom of sub-menu to parent        -webkit-transition: 1s all; //sets up transition of opacity and    visibility
+-moz-transition: 1s all;
+</code></pre>   transition: 1s all;<br>}<br>nav.menu li:hover &gt; ul { <pre><code>opacity:1; 
+visibility:visible;
+</code></pre>}<br>nav.menu li li {<pre><code>float:none; // kills inherited float - makes list stack
+</code></pre>}<br>.no-csstransitions nav.menu li ul { <pre><code>visibility:visible; opacity:1;  display:none; 
+</code></pre>}<br>.no-csstransitions nav.menu li:hover &gt; ul { display:block;}<br></li>
 </ol>
 
           
