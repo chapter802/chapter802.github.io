@@ -357,8 +357,7 @@
       
         
           
-            <p>#前端笔记</p>
-<ol>
+            <h1 id="前端笔记"><a href="#前端笔记" class="headerlink" title="前端笔记"></a><del>前端笔记</del></h1><ol>
 <li>属性前面的下划线表示只能通过对象方法访问的属性。</li>
 <li>DOM 0级事件后面的事件会覆盖前面的事件；DOM 2级事件则不会覆盖前面的事件。</li>
 <li>indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。<br>注释：indexOf() 方法对大小写敏感！<br>注释：如果要检索的字符串值没有出现，则该方法返回 -1。</li>
@@ -370,11 +369,14 @@
 <li>Because parseFloat() parses only decimal values, there is no radix mode.<br> Modulus: ➤  If the dividend is a finite number and the divisor is an infinite<br> number, then the result is the dividend.</li>
 <li>The equal operator in ECMAScript is the double equal sign (==), and it    returns true if the operands are equal.</li>
 <li>For-in语句是一种精准的迭代语句，可以用来枚举对象的属性。语法：for (property in expression) statement      for(变量 in 对象) {执行代码}</li>
-<li>Document.write()输出嵌套函数换行示例：<br>document.write(“<br>“);<br>document.write(“<br>“);<br>document.write(diff(8, 7)+”<br>“);<br>注：标准是<br>  不标准的<br> <br></li>
-<li>即使在函数内部修改了参数的值，但原始的引用仍然保持未变，实际上，在函   数内部重写变量的属性时，这个变量引用的就是一个局部对象了，而这个局部对象会在函数执行完毕后立即被销毁。     </li>
-<li>函数参数也被当做变量来对待，因此其访问规则与执行环境中的其它变量相同。创建object实例：var person = new Object();等价于 var person = {};<br>推荐使用：var person = ();{name:”Nicholas”,age:29};<br>最后一个属性后面不能加逗号，加逗号会在IE7及更早版本和Opera浏览器中导致错误。</li>
-<li>方括号表示法： person[“first name”] = “Nicholas”;如果属性名中包含会导致语法错误的字符，或者属性名使用的是关键字或者保留字，也可以使用方括号表示法。<br>主要优点是可以通过变量来访问属性 var propertyName = “name”;<br>alert(person[propertyName]);注：推荐使用点表示法。</li>
-<li>如果不给join()方法传入任何值，或者传入undefined,则使用逗号作为分隔符。IE7及更早版本会使用undefined作为分隔符。如果数组中的某一项的值为null或者undefined，那么该值在join(), toString(), toLocaleString()和valueof()方法返回的结果以空字符串表示。</li>
+<li><p>Document.write()输出嵌套函数换行示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">document.write(&quot;&lt;br /&gt;&quot;);</div><div class="line">document.write(diff(8, 7)+&quot;&lt;br/&gt;&quot;);</div><div class="line">注：标准是&lt;br /&gt;  不标准的&lt;br&gt; &lt;br/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>即使在函数内部修改了参数的值，但原始的引用仍然保持未变，实际上，在函   数内部重写变量的属性时，这个变量引用的就是一个局部对象了，而这个局部对象会在函数执行完毕后立即被销毁。     </p>
+</li>
+<li>函数参数也被当做变量来对待，因此其访问规则与执行环境中的其它变量相同。创建object实例：<code>var person = new Object();等价于 var person = {};</code><br>推荐使用：<code>var person = ();{name:”Nicholas”,age:29};</code><br>最后一个属性后面不能加逗号，加逗号会在IE7及更早版本和Opera浏览器中导致错误。</li>
+<li>方括号表示法： <code>person[“first name”] = “Nicholas”;</code>如果属性名中包含会导致语法错误的字符，或者属性名使用的是关键字或者保留字，也可以使用方括号表示法。<br>主要优点是可以通过变量来访问属性 <code>var propertyName = “name”;</code><br><code>alert(person[propertyName])</code>;注：推荐使用点表示法。</li>
+<li>如果不给join()方法传入任何值，或者传入undefined,则使用逗号作为分隔符。IE7及更早版<br>本会使用undefined作为分隔符。如果数组中的某一项的值为null或者undefined，那么该值在<br>join(), toString(), toLocaleString()和valueof()方法返回的结果以空字符串表示。</li>
 <li>栈数据结构的访问规则是LIFO(后进先出)，而队列数据结构的访问规则是FIFO(先进先出)。push()从末端插入；pop()从末端移除弹出，shift()从第一项移除；unshift()在数组前端插入并返回新数组的长度。</li>
 <li>指定变量可以是数组元素，也可以是对象的属性。</li>
 <li>通过Document类型调用querySelector()方法时，会在文档元素的范围内查找匹配的元素。而通过Element类型调用querySelector()方法时，只会在该元素后代元素的范围内查找匹配的元素.</li>
@@ -386,17 +388,25 @@
 <li>apply()接收两个参数，一个是在其中运行的函数的作用域，另一个是参数数组。Apply()和call()方法强大的地方在于能够扩充函数赖以运行的作用域。</li>
 <li>布尔表达式中的所有对象都会被转换为true。</li>
 <li>toFixed()方法会按照指定的小数位数返回数值的字符串表示。</li>
-<li>typeof 和 instanceof 常用来判断一个变量是否为空或者是什么类型的。instanceof 可以在继承关系中用来判断一个实例是否属于它的父类型。<br>instanceof 方法要求开发者明确地确认对象为某特定类型。例如：<br>var oStringObject = new String(“hello world”);<br>alert(oStringObject instanceof String);  //输出 “true”</li>
-<li>使用new调用基本包装类型的构造函数，与直接调用同名的转型函数是不一样的。</li>
-<li>substring(start, stop) 方法用于提取字符串中介于两个指定下标之间的字符.<br>注：substring() 方法返回的子串包括 start 处的字符，但不包括 stop 处的字符。 </li>
+<li><p>typeof 和 instanceof 常用来判断一个变量是否为空或者是什么类型的。instanceof 可以在继承关系中用来判断一个实例是否属于它的父类型。<br>instanceof 方法要求开发者明确地确认对象为某特定类型。例如：</p>
+<figure class="highlight plain"><figcaption><span>oStringObject = new String("hello world");</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alert(oStringObject instanceof String);  //输出 &quot;true&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用new调用基本包装类型的构造函数，与直接调用同名的转型函数是不一样的。</p>
+</li>
+<li>substri<a href="media/14824577439411/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0.md">前端笔记</a>ng(start, stop) 方法用于提取字符串中介于两个指定下标之间的字符.<br>注：substring() 方法返回的子串包括 start 处的字符，但不包括 stop 处的字符。 </li>
 <li>利用Math.random()从某个整数范围内随机取一个值。公式：</li>
 <li>nodetype属性值  元素：1  ，属性：2  ， 文本：3  。<br>语法：elementNode.nodeType</li>
 <li>！！ 表示非非跟没有叹号的效果一样，但是用两个叹号可以做类型转换。！！是一个逻辑操作，不论它的后面接的什么数值，他的结果会被强制转换为布尔类型，之所以用两个叹号，主要为了让结果不会逻辑反过来。</li>
 <li>直接把函数作为属性访问会导致JavaScript错误。</li>
 <li>浏览器五大呈现引擎：IE, Gecko, Webkit, KHTML, opera. </li>
 <li>原型链作为实现继承的基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。</li>
-<li>借用构造函数也叫做伪造函数或者经典继承。有个很大的优势即可以在子类型构造函数中向超类型函数传递参数。使用call()或者apply()方法。<br>例子：function SuperType() {this.Object= properties;}<br>  function SubType(){SuperType.call(this)}</li>
-<li>寄生组合式继承：即通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。基本思路：不必为了指定子类型的原型而调用超类型的构造函数，我们需要的是超类型的一个副本，本质上，就是使用寄生式继承来继承超类型的原型，然后再将结果指定给子类型的原型。<br>寄生组合式继承的基本模式：<br>function inheritPrototype(subType, superType){<br>   var prototype = Object(superType.prototype);  //创建对象<br>   prototype.constructor = subType;  //增强对象<br>   subtype.prototype = prototype;  //指定对象<br>示例中的inheritPrototype()函数实现了寄生组合式继承的最简单形式。这个函数接收两个参数：子类<br>型构造函数和超类型构造函数。在函数内部，第一步是创建超类型原型的一个副本。第二步是为创建的副本<br>添加constructor属性，从而弥补因重写原型而失去的默认的constructor属性。最后一步，将新创建的<br>对象（即副本）赋值给子类型的原型。</li>
+<li><p>借用构造函数也叫做伪造函数或者经典继承。有个很大的优势即可以在子类型构造函数中向超类型函数传递参数。使用call()或者apply()方法。<br>例子：</p>
+<figure class="highlight plain"><figcaption><span>SuperType() &#123;this.Object= properties;&#125;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function SubType()&#123;SuperType.call(this)&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>寄生组合式继承：即通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。基本思路：不必为了指定子类型的原型而调用超类型的构造函数，我们需要的是超类型的一个副本，本质上，就是使用寄生式继承来继承超类型的原型，然后再将结果指定给子类型的原型。<br>寄生组合式继承的基本模式：</p>
+<figure class="highlight plain"><figcaption><span>inheritPrototype(subType, superType)&#123;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    var prototype = Object(superType.prototype);  //创建对象</div><div class="line">    prototype.constructor = subType;  //增强对象</div><div class="line">    subtype.prototype = prototype;  //指定对象</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>示例中的inheritPrototype()函数实现了寄生组合式继承的最简单形式。这个函数接收两个参数：子类<br>型构造函数和超类型构造函数。在函数内部，第一步是创建超类型原型的一个副本。第二步是为创建的副本<br>添加constructor属性，从而弥补因重写原型而失去的默认的constructor属性。最后一步，将新创建的<br>对象（即副本）赋值给子类型的原型。</p>
+</li>
 <li>innerText与textContent//Firefox  返回的内容不完全一样.<br>例如: innerText会忽略行内的样式和脚本,而textContent则会像返回其他文本一样返回行内的样式和<br>脚本代码.</li>
 <li>js访问元素的样式:因为float是javascript里的保留字,”DOM2级样式”规范规定样式上对应的属性名是cssFloat; 而IE支持的是styleFloat.</li>
 <li>标准模式下,所有度量值都必须指定一个度量单位.在混杂模式下,可以将style.width设置为”20”,浏览器会假设它是”20px”.</li>
@@ -404,13 +414,15 @@
 <li>DOM2级事件定义了两个方法,用于处理指定和删除事件处理程序的操作:addEventListener()和removeEventListener().他们接受三个参数:要处理的事件名,作为事件处理程序的函数和一个布尔值.最后这个布尔值如果是true,表示在捕获阶段调用事件处理程序;如果是false,表示在冒泡阶段调用事件处理程序.IE8之前有两个类似的方法attachEvent()和detachEvent(),只支持冒泡.</li>
 <li>addHandler()接收三个参数:要操作的元素, 事件名称,事件处理程序函数.</li>
 <li>匿名函数最大的用途是创建闭包（这是JavaScript语言的特性之一），并且还可以构建命名空间，以减少全局变量的使用。</li>
-<li>#list {} var oUl = document.getElementById(‘list’);    静态方法<br> li {} document.getElementsByTagName(‘li’);            动态方法<br> #list li {}  var aLi = oUl.getElementsByTagName(‘li’);</li>
-<li>if判断条件有几种条件不能做判断a.背景不能做判断 b.color不能做判断 c.相对路径不能做判断。</li>
+<li><figure class="highlight plain"><figcaption><span>&#123;&#125; var oUl = document.getElementById(‘list’);</span><a href="//">静态方法</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">li &#123;&#125; document.getElementsByTagName(‘li’);         //  动态方法</div><div class="line">#list li &#123;&#125;  var aLi = oUl.getElementsByTagName(‘li’);</div></pre></td></tr></table></figure>
+</li>
+<li><p>if判断条件有几种条件不能做判断a.背景不能做判断 b.color不能做判断 c.相对路径不能做判断。</p>
+</li>
 <li>input 的属性autocomplete 默认为on,其含义代表是否让浏览器自动记录之前输入的值.很多时候，需要对客户的资料进行保密，防止浏览器软件或者恶意插件获取到.可以在input中加入autocomplete=”off” 来关闭记录,系统需要保密的情况下可以使用此参数.</li>
 <li>zoom:1;属性是IE浏览器的专有属性，Firefox等其它浏览器不支持。它可以设置或检索对象的缩放比例。除此之外，它还有其他一些小作用，比如触发ie的hasLayout属性，清除浮动、清除margin的重叠等。但很遗憾的是，它通不过W3C验证．</li>
-<li>背景属性：背景颜色 背景图片 背景是否重复 背景是否随浏览器滚动 背景平位置 背景垂直位置<br>background : background-color || background-image || background-repeat ||<br>background-attachment || background-position</li>
-<li>-webkit-font-smoothing: antialiased      CSS3中用于webkit引擎(如chrome)中设置字体的抗锯齿或者说光滑度的属性。有3个属性：none用于小像素的文本、subpixel-antialiased浏览器默认的、antialiased反锯齿。</li>
-<li>box-shadow: h-shadow v-shadow blur spread color inset;<pre><code>h-shadow: 必需。水平阴影的位置。允许负值。
+<li>背景属性：背景颜色 背景图片 背景是否重复 背景是否随浏览器滚动 背景平位置 背景垂直位置<br><code>background : background-color || background-image || background-repeat     || background-attachment || background-position</code></li>
+<li><code>-webkit-font-smoothing: antialiased</code>    CSS3中用于webkit引擎(如chrome)中设置字体的抗锯齿或者说光滑度的属性。有3个属性：none用于小像素的文本、subpixel-antialiased浏览器默认的、antialiased反锯齿。</li>
+<li><code>box-shadow: h-shadow v-shadow blur spread color inset;</code><pre><code>h-shadow: 必需。水平阴影的位置。允许负值。
 v-shadow: 必需。垂直阴影的位置。允许负值。
 blur: 可选。模糊距离。
 spread: 可选。阴影的尺寸。
@@ -418,7 +430,7 @@ color: 可选。阴影的颜色。
 inset: 可选。将外部阴影 (outset) 改为内部阴影。
 </code></pre></li>
 <li>max-height 这个属性会阻止 height 属性的设置值变得比 max-height 更大。max-height 属性用来设置给定元素的最大高度. 如果height 属性设置的高度比该属性设置的高度还大,则height 属性会失效.max-height 重载（覆盖掉） height, 但是 min-height 又会重载（覆盖掉） max-height.</li>
-<li>css font标签简写：font : font-style || font-variant || font-weight || font-size || line-height || font-family<br> font-size和font-family是不可忽略的。每个参数仅允许有一个值。忽略的将使用其参数对应的独立<br> 属性的默认值。</li>
+<li>css font标签简写：<code>font : font-style || font-variant || font-weight || font-size || line-height || font-family</code><br> font-size和font-family是不可忽略的。每个参数仅允许有一个值。忽略的将使用其参数对应的独立<br> 属性的默认值。</li>
 <li>最适合采用事件委托技术的事件包括click, mousedown, mouseup, keydown, keyup和keypress.虽然mouseover和mouseout事件也冒泡，但要适当处理它们并不容易，而且经常需要计算元素的位置。</li>
 <li>js预解析：遇到重名的只留一个，变量和函数重名，留函数，跟前后顺序无关，跟有值没值有关；同级关系取后一个。表达式可以修改预解析的值。</li>
 <li>尽量不要在if语句和for循环里面定义全局变量和全局函数，会存在兼容性问题，FF预解析不到。</li>
@@ -431,7 +443,7 @@ inset: 可选。将外部阴影 (outset) 改为内部阴影。
 <li>定时器时间间隔最低设置为14，jQuery最低只支持到14.</li>
 <li>JSON不用声明变量，因为JSON不支持变量，函数，对象实例。JSON对象末尾不需要加分号，对象的属性必须加双引号。JSON没有长度概念，不能用for循环长度，可以用for…in…循环。</li>
 <li>字符编码：0～9 // 48～57     a～z // 97～122    A~Z // 65~90 </li>
-<li>取X～Y之间的随机值公式：Mathround(Math.random()<em>(Y-X)+X)<br> 1～X之间的随机值公式：Math.ceil(Math.random()</em>X)<br> 0～X之间的随机值公式：Math.round(Math.random()*X)</li>
+<li>取X～Y之间的随机值公式：<code>Mathround(Math.random()*(Y-X)+X)</code><br> 1～X之间的随机值公式：<code>Math.ceil(Math.random()*X)</code><br> 0～X之间的随机值公式：<code>Math.round(Math.random()*X)</code></li>
 <li>transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转,缩放,定位,倾斜</li>
 <li>给包含浮动元素的父标签添加css属性 overflow:auto; zoom:1; zoom:1用于兼:容IE6。</li>
 <li>:for循环和for…in区别：数组可以用这两种循环 JSON只能用for…in. 数组用for…in循环起始位置不能定义，只能全部循环。 </li>
