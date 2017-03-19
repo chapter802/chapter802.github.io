@@ -101,7 +101,7 @@ tags:前端笔记
 属性前面的下划线表示只能通过对象方法访问的属性。
 DOM 0级事件后面的事件会覆盖前面的事件；DOM 2级事件则不会覆盖前面的事件。
 indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。注释：indexOf() 方法对大小写敏感！注释：如果要检索的字符串值没有出现，则该方法返回 -">
-<meta property="og:updated_time" content="2017-03-19T09:46:13.000Z">
+<meta property="og:updated_time" content="2017-03-19T09:47:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="title: 前端笔记date: 2017-03-17 09:36:43
@@ -461,10 +461,13 @@ indexOf() 方法可返回某个指定的字符串值在字符串中首次出现�
 </li>
 <li><p>首字母下沉css样式 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">h1 + p::first-letter &#123;</div><div class="line">    font-family:times, serif; </div><div class="line">    font-size:-90px; </div><div class="line">    float:left; line-height:.65;</div><div class="line">    padding:.085em 3px 0 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>首字母下沉效果做完了。可是，我希望大号首字母到小号正文之间有一个过渡，所<br>以需要把段落第一行的文本变成小型大写字母。   </p>
-</li>
-<li><p>css的加号 邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</p>
-</li>
+<p>首字母下沉效果做完了。可是，我希望大号首字母到小号正文之间有一个过渡，所<br>以需要把段落第一行的文本变成小型大写字母。  </p>
+<pre><code>h1 + p::first-line {
+    font-variant:small-caps; 
+    letter-spacing:.15em;
+}
+</code></pre></li>
+<li>css的加号 邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</li>
 <li>导航条啊\<a\>标签让列表行可以点击<br>  <code>.list1 a {display:block; padding:3px 10px;}</code>设置内边距 显示为块元素</a\></li>
 <li><code>.list1 li + li a {border-left:1px solid #aaa;}</code> 第一个li标签没有左边框样式<br> <code>li:last-child a {border-right-style:none;}</code> </li>
 <li>中间点号编码  • → &amp;#8226;  上右单引号编码 ’ → &amp;#8217; </li>
