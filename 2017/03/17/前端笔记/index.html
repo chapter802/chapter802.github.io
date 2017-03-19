@@ -101,7 +101,7 @@ tags:前端笔记
 属性前面的下划线表示只能通过对象方法访问的属性。
 DOM 0级事件后面的事件会覆盖前面的事件；DOM 2级事件则不会覆盖前面的事件。
 indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。注释：indexOf() 方法对大小写敏感！注释：如果要检索的字符串值没有出现，则该方法返回 -">
-<meta property="og:updated_time" content="2017-03-19T12:37:55.000Z">
+<meta property="og:updated_time" content="2017-03-19T12:40:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="title: 前端笔记date: 2017-03-17 09:36:43
@@ -523,7 +523,7 @@ indexOf() 方法可返回某个指定的字符串值在字符串中首次出现�
 <li>jquery通过id筛选元素比通过类筛选元素效率高.</li>
 <li>工厂模式主要好处就是可以消除对象间的耦合，通过使用工程方法而不是new关键字。将所有实例化的代码集中在一个位置防止代码重复。<br>缺点就是大多数类最好使用new关键字和构造函数，可以让代码更加简单易读。而不必去查看工厂方法<br>来知道。</li>
 <li>在使用attachEvent()方法的情况下，事件处理程序会在全局作用域中运行，因此this等于window。 </li>
-<li>在DOM中，<code>addEventListener()</code>和<code>removeEventListener()</code>用来分配和移除事件处理函数，与IE不同的是，这些方法需要三个参数：事件名称，要分配的函数和处理函数是用于冒泡阶段(false)还是捕获阶段(true)，默认为冒泡阶段false.<br>###jQuery基础教程部分 Start</li>
+<li>在DOM中，<code>addEventListener()</code>和<code>removeEventListener()</code>用来分配和移除事件处理函数，与IE不同的是，这些方法需要三个参数：事件名称，要分配的函数和处理函数是用于冒泡阶段(false)还是捕获阶段(true)，默认为冒泡阶段false.<br>##jQuery基础教程部分 Start</li>
 <li>带着圆括号,函数会被立即调用;没有圆括号,函数名就只是函数的标识符或函数引用,可以用于在将来再调用函数。</li>
 <li>.onload属性一次只能保存对一个函数的引用,所以不能在现有的行为基础上再增加新行为。 </li>
 <li><code>$(document).ready(function() { //代码 }); 相当于 $(function() { //代码 });</code></li>
@@ -534,7 +534,7 @@ indexOf() 方法可返回某个指定的字符串值在字符串中首次出现�
 <li>animation中的queue选项设置为false即可让当前动画与前一个动画同时开始。</li>
 <li>在取得和设置表单控件的值时,最好不要使用.attr()方法。而对于选 项列表,最好连.prop()方法也不要使用。建议使用jQuery提供的.val()方法.</li>
 <li>click事件return false意味着同时调用event.preventDefault()和event. stopPropagation()。 </li>
-<li>.serialize()方法。这个方法作用于一个 jQuery对象,将匹配的DOM元素转换成能够随Ajax请求传递的查询字符串。<br>###jQuery基础教程部分 End</li>
+<li>.serialize()方法。这个方法作用于一个 jQuery对象,将匹配的DOM元素转换成能够随Ajax请求传递的查询字符串。<br>##jQuery基础教程部分 End</li>
 <li><p>合并数组方法：    </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var merge = function() &#123;</div><div class="line">    return Array.prototype.concat.apply([], arguments)</div><div class="line">&#125;</div><div class="line">merge([1,2,4],[3,4],[5,6]);  //[1, 2, 4, 3, 4, 5, 6] 不包含去重</div></pre></td></tr></table></figure>
 </li>
