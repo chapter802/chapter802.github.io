@@ -402,10 +402,10 @@
 <li>直接把函数作为属性访问会导致JavaScript错误。</li>
 <li>浏览器五大呈现引擎：IE, Gecko, Webkit, KHTML, opera. </li>
 <li>原型链作为实现继承的基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。</li>
-<li><p>借用构造函数也叫做伪造函数或者经典继承。有个很大的优势即可以在子类型构造函数中向超类型函数传递参数。使用call()或者apply()方法。<br>例子： <figure class="highlight plain"><figcaption><span>SuperType() &#123;this.Object= properties;&#125;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function SubType()&#123;SuperType.call(this)&#125;</div></pre></td></tr></table></figure></p>
+<li><p>借用构造函数也叫做伪造函数或者经典继承。有个很大的优势即可以在子类型构造函数中向超类型函数传递参数。使用call()或者apply()方法。<br>例子： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function SuperType() &#123;this.Object= properties;&#125;</div><div class="line">function SubType()&#123;SuperType.call(this)&#125;</div></pre></td></tr></table></figure></p>
 </li>
 <li><p>寄生组合式继承：即通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。基本思路：不必为了指定子类型的原型而调用超类型的构造函数，我们需要的是超类型的一个副本，本质上，就是使用寄生式继承来继承超类型的原型，然后再将结果指定给子类型的原型。<br>寄生组合式继承的基本模式：</p>
-<figure class="highlight plain"><figcaption><span>inheritPrototype(subType, superType)&#123;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    var prototype = Object(superType.prototype);  //创建对象</div><div class="line">    prototype.constructor = subType;  //增强对象</div><div class="line">    subtype.prototype = prototype;  //指定对象</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function inheritPrototype(subType, superType)&#123;</div><div class="line">    var prototype = Object(superType.prototype);  //创建对象</div><div class="line">    prototype.constructor = subType;  //增强对象</div><div class="line">    subtype.prototype = prototype;  //指定对象</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>示例中的inheritPrototype()函数实现了寄生组合式继承的最简单形式。这个函数接收两个参数：子类<br>型构造函数和超类型构造函数。在函数内部，第一步是创建超类型原型的一个副本。第二步是为创建的副本<br>添加constructor属性，从而弥补因重写原型而失去的默认的constructor属性。最后一步，将新创建的<br>对象（即副本）赋值给子类型的原型。</p>
 </li>
 <li>innerText与textContent//Firefox  返回的内容不完全一样.<br>例如: innerText会忽略行内的样式和脚本,而textContent则会像返回其他文本一样返回行内的样式和<br>脚本代码.</li>
@@ -421,7 +421,7 @@
 <li>背景属性：背景颜色 背景图片 背景是否重复 背景是否随浏览器滚动 背景平位置 背景垂直位置<br><code>background : background-color || background-image || background-repeat     || background-attachment || background-position</code></li>
 <li><code>-webkit-font-smoothing: antialiased</code>    CSS3中用于webkit引擎(如chrome)中设置字体的抗锯齿或者说光滑度的属性。有3个属性：none用于小像素的文本、subpixel-antialiased浏览器默认的、antialiased反锯齿。</li>
 <li><p>box-shadow属性</p>
- <figure class="highlight plain"><figcaption><span>h-shadow v-shadow blur spread color inset;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">h-shadow: 必需。水平阴影的位置。允许负值。</div><div class="line">v-shadow: 必需。垂直阴影的位置。允许负值。</div><div class="line">blur: 可选。模糊距离。</div><div class="line">spread: 可选。阴影的尺寸。</div><div class="line">color: 可选。阴影的颜色。</div><div class="line">inset: 可选。将外部阴影 (outset) 改为内部阴影。</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">box-shadow: h-shadow v-shadow blur spread color inset;</div><div class="line">   h-shadow: 必需。水平阴影的位置。允许负值。</div><div class="line">   v-shadow: 必需。垂直阴影的位置。允许负值。</div><div class="line">   blur: 可选。模糊距离。</div><div class="line">   spread: 可选。阴影的尺寸。</div><div class="line">   color: 可选。阴影的颜色。</div><div class="line">   inset: 可选。将外部阴影 (outset) 改为内部阴影。</div></pre></td></tr></table></figure>
 </li>
 <li><p>max-height 这个属性会阻止 height 属性的设置值变得比 max-height 更大。max-height 属性用来设置给定元素的最大高度. 如果height 属性设置的高度比该属性设置的高度还大,则height 属性会失效.max-height 重载（覆盖掉） height, 但是 min-height 又会重载（覆盖掉） max-height.</p>
 </li>
@@ -447,45 +447,33 @@
 <li>当函数的参数的个数无法确定的时候,用arguments.</li>
 <li>弹性运动终止条件:速度足够小,距离足够近.用到Math.abs()取绝对值.</li>
 <li><p>css自定义上下标参考值</p>
-<figure class="highlight plain"><figcaption><span>sub &#123;font-size:60%; vertical-align:-.4em;&#125;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p.custom sup &#123;font-size:65%; vertical-align:.65em;&#125;</div><div class="line">p.customsmall &#123;font-size:.8em; vertical-align:1em;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p.custom sub &#123;font-size:60%; vertical-align:-.4em;&#125;</div><div class="line">p.custom sup &#123;font-size:65%; vertical-align:.65em;&#125;</div><div class="line">p.customsmall &#123;font-size:.8em; vertical-align:1em;&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>首字母下沉css样式    </p>
-<figure class="highlight plain"><figcaption><span>+ p::first-letter &#123;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">        font-family:times, serif; </div><div class="line">        font-size:-90px; </div><div class="line">        float:left; line-height:.65;</div><div class="line">        padding:.085em 3px 0 0;</div><div class="line">    &#125;</div><div class="line">```    </div><div class="line">首字母下沉效果做完了。可是，我希望大号首字母到小号正文之间有一个过渡，所</div><div class="line">以需要把段落第一行的文本变成小型大写字母。   </div><div class="line">```h1 + p::first-line &#123;</div><div class="line">        font-variant:small-caps; </div><div class="line">        letter-spacing:.15em;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>css的加号 邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</p>
-</li>
-<li>导航条啊\<a\>标签让列表行可以点击<br>  <code>.list1 a {display:block; padding:3px 10px;}</code>设置内边距 显示为块元素</a\></li>
-<li><code>.list1 li + li a {border-left:1px solid #aaa;}</code> 第一个li标签没有左边框样式<br> <code>li:last-child a {border-right-style:none;}</code> </li>
-<li>中间点号编码  • → &amp;#8226;  上右单引号编码 ’ → &amp;#8217; </li>
-<li><label>标签  for属性与id属性通过相同的值关联起来后,用户点击标注文本也可以选择单选按钮和复选框. </label></li>
-<li><code>border-radius:20px 0px 20px 0px; /* 顺序: 左上 右上 右下 左下*/</code><br><code>box-shadow: h-shadow v-shadow blur spread color inset;</code></li>
-<li>导航下拉菜单 淡入淡出<br>```.nav.menu li ul { <pre><code>opacity:0; visibility:hidden; /* hides drop-down */ 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">    h1 + p::first-letter &#123;</div><div class="line">        font-family:times, serif; </div><div class="line">        font-size:-90px; </div><div class="line">        float:left; line-height:.65;</div><div class="line">        padding:.085em 3px 0 0;</div><div class="line">    &#125;</div><div class="line">```    </div><div class="line">首字母下沉效果做完了。可是，我希望大号首字母到小号正文之间有一个过渡，所</div><div class="line">以需要把段落第一行的文本变成小型大写字母。</div></pre></td></tr></table></figure>
+<pre><code>h1 + p::first-line {
+    font-variant:small-caps; 
+    letter-spacing:.15em;
+} 
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">77. css的加号 邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</div><div class="line">78. 导航条啊\&lt;a\&gt;标签让列表行可以点击</div><div class="line">      `.list1 a &#123;display:block; padding:3px 10px;&#125; `设置内边距 显示为块元素</div><div class="line">79. `.list1 li + li a &#123;border-left:1px solid #aaa;&#125;` 第一个li标签没有左边框样式</div><div class="line">     `li:last-child a &#123;border-right-style:none;&#125;` </div><div class="line">80. 中间点号编码  • → &amp;\#8226;  上右单引号编码 ’ → &amp;\#8217; </div><div class="line">81. &lt;label&gt;标签  for属性与id属性通过相同的值关联起来后,用户点击标注文本也可以选择单选按钮和复选框. </div><div class="line">82. `border-radius:20px 0px 20px 0px; /* 顺序: 左上 右上 右下 左下*/ `</div><div class="line">    `box-shadow: h-shadow v-shadow blur spread color inset;`</div><div class="line">83. 导航下拉菜单 淡入淡出</div></pre></td></tr></table></figure>
+<p>.nav.menu li ul { </p>
+<pre><code>opacity:0; visibility:hidden; /* hides drop-down */ 
 position:absolute; /* position relative to parent menu */
 width:12em;
 left:0;   /* aligns left of sub-menu to parent */
 top:100%; /* aligns bottom of sub-menu to parent */
 -webkit-transition: 1s all; /* sets up transition of opacity and    visibility*/
 -moz-transition: 1s all;
-</code></pre>   transition: 1s all;<br>}<br>nav.menu li:hover &gt; ul { <pre><code>opacity:1; 
+</code></pre><p>   transition: 1s all;<br>}<br>nav.menu li:hover &gt; ul { </p>
+<pre><code>opacity:1; 
 visibility:visible;
-</code></pre>}<br>nav.menu li li {<pre><code>float:none; /* kills inherited float - makes list stack */
-</code></pre>}<br>.no-csstransitions nav.menu li ul { <pre><code>visibility:visible; opacity:1;  display:none; 
-</code></pre>}<br>.no-csstransitions nav.menu li:hover &gt; ul { display:block; /<em> </em>/ }<br>```   </li>
-<li>响应式设计包含三方面: 媒体查询, 流式布局, 弹性图片.媒体查询可以用两种方式来写: @media规则和 <link>标签的media属性.</li>
-<li>通过触摸屏幕其他地方来调用jQuery的noop函数就可以关闭掉下拉菜单了<br><code>(function(){ $(window).on(‘touchstart’ ,$.noop);})();</code><br>如果不用jQuery,在<body>标签上添加 ontouchstart=“ ” 也会在用户触摸屏幕其他地方时触发<br>JavaScript运行,从而关闭菜单.</body></li>
-<li>IE浏览器代码块 只有IE才会执行 </li>
-<li><p>IE9之前的浏览器都不支持多背景,因此后备代码就是在多背景声明之前简单加一条单背景声明,顺序不能错. 例如:  </p>
+</code></pre><p>}<br>nav.menu li li {</p>
+<pre><code>float:none; /* kills inherited float - makes list stack */
+</code></pre><p>}<br>.no-csstransitions nav.menu li ul { </p>
+<pre><code>visibility:visible; opacity:1;  display:none; 
+</code></pre><p>}<br>.no-csstransitions nav.menu li:hover &gt; ul { display:block; /<em> </em>/ } </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">84. 响应式设计包含三方面: 媒体查询, 流式布局, 弹性图片.媒体查询可以用两种方式来写: @media规则和 &lt;link&gt;标签的media属性.</div><div class="line">85. 通过触摸屏幕其他地方来调用jQuery的noop函数就可以关闭掉下拉菜单了</div><div class="line">    `(function()&#123; $(window).on(‘touchstart’ ,$.noop);&#125;)();` </div><div class="line">    如果不用jQuery,在&lt;body&gt;标签上添加 ontouchstart=“ ” 也会在用户触摸屏幕其他地方时触发</div><div class="line">    JavaScript运行,从而关闭菜单.</div><div class="line">86. IE浏览器代码块 只有IE才会执行 </div><div class="line">87. IE9之前的浏览器都不支持多背景,因此后备代码就是在多背景声明之前简单加一条单背景声明,顺序不能错. 例如:  </div><div class="line"></div><div class="line">88. 微软雅黑字体编码:`Microsoft YaHei Unicode:\5FAE\8F6F\96C5\9ED1`</div><div class="line">89. 来去除链接取得焦点时外围出现的虚线框:`onfocus=”this.blur()&quot; ` </div><div class="line">90. css样式表优先级</div><div class="line">    The specificity of a selector is broken down into four constituent levels: a, </div><div class="line">    b, c, and d. </div><div class="line">  • If the style is an inline style, a equals 1. </div><div class="line">  •  b equals the total number of ID selectors. </div><div class="line">  •  c equals the number of class, pseudo-class, and attribute selectors. </div><div class="line">  •  d equals the number of type selectors and pseudo-element selectors. </div><div class="line">91. input的类型为单选框或为复选框时，才需要input和label搭配使用。因为这样，在指定label的for属性为单选框或复选框的id时，就可以通过点击到label里的文字即可选中单选框或复选框的效果.</div><div class="line">92. 利用构造函数伪装来继承父级的属性,通过原型链来继承父级的方法.</div><div class="line">93. css自定义上下标</div><div class="line">       ``` </div><div class="line">        p.custom sub &#123;font-size:60%; vertical-align:-.4em;&#125;</div><div class="line">        p.custom sup &#123;font-size:65%; vertical-align:.65em;&#125;</div><div class="line">        p.custom small &#123;font-size:.8em; vertical-align:1em;&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>微软雅黑字体编码:<code>Microsoft YaHei Unicode:\5FAE\8F6F\96C5\9ED1</code></p>
-</li>
-<li>来去除链接取得焦点时外围出现的虚线框:<code>onfocus=”this.blur()&quot;</code> </li>
-<li>css样式表优先级<br>The specificity of a selector is broken down into four constituent levels: a,<br>b, c, and d.<br>• If the style is an inline style, a equals 1.<br>•  b equals the total number of ID selectors.<br>•  c equals the number of class, pseudo-class, and attribute selectors.<br>•  d equals the number of type selectors and pseudo-element selectors. </li>
-<li>input的类型为单选框或为复选框时，才需要input和label搭配使用。因为这样，在指定label的for属性为单选框或复选框的id时，就可以通过点击到label里的文字即可选中单选框或复选框的效果.</li>
-<li>利用构造函数伪装来继承父级的属性,通过原型链来继承父级的方法.</li>
-<li>css自定义上下标<pre><code>`p.custom sub {font-size:60%; vertical-align:-.4em;}`
-`p.custom sup {font-size:65%; vertical-align:.65em;}
-p.custom small {font-size:.8em; vertical-align:1em;}`
-</code></pre></li>
 </ol>
 
           
