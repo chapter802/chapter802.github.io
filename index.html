@@ -483,20 +483,22 @@
 <li>css样式表优先级<br>The specificity of a selector is broken down into four constituent levels: a,<br>b, c, and d.<br>• If the style is an inline style, a equals 1.<br>•  b equals the total number of ID selectors.<br>•  c equals the number of class, pseudo-class, and attribute selectors.<br>•  d equals the number of type selectors and pseudo-element selectors. </li>
 <li>input的类型为单选框或为复选框时，才需要input和label搭配使用。因为这样，在指定label的for属性为单选框或复选框的id时，就可以通过点击到label里的文字即可选中单选框或复选框的效果.</li>
 <li>利用构造函数伪装来继承父级的属性,通过原型链来继承父级的方法.</li>
-<li><p>css自定义上下标</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p.custom sub &#123;font-size:60%; vertical-align:-.4em;&#125;</div><div class="line">p.custom sup &#123;font-size:65%; vertical-align:.65em;&#125;</div><div class="line">p.customsmall &#123;font-size:.8em; vertical-align:1em;&#125;</div></pre></td></tr></table></figure>
-<p>首字母下沉css样式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">        h1 + p::first-letter &#123;</div><div class="line">            font-family:times, serif; </div><div class="line">            font-size:-90px; </div><div class="line">            float:left; line-height:.65;</div><div class="line">            padding:.085em 3px 0 0;</div><div class="line">        &#125; </div><div class="line">    ```   </div><div class="line">首字母下沉效果做完了。可是，我希望大号首字母到小号正文之间有一个过渡，所以需要把段落第一行的文本变成小型大写字母。</div></pre></td></tr></table></figure>
-<pre><code>h1 + p::first-line {
-    font-variant:small-caps; 
-    letter-spacing:.15em;
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">94. css的加号 邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</div><div class="line">    导航条\&lt;a\&gt;标签让列表行可以点击</div><div class="line">        `.list1 a &#123;display:block; padding:3px 10px;&#125;` 设置内边距 显示为块元素</div><div class="line">        `.list1 li + li a &#123;border-left:1px solid #aaa;&#125;` 第一个li标签没有左边框样</div><div class="line">        式。</div><div class="line">95. `getBoundingClientRect()`注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。</div><div class="line">96. 当属性名是小而连续的整数时,使用数组,否则使用对象.</div><div class="line">97. 滚动条移动的高度与文档向上滚动的高度应该不是一样的，应该是</div><div class="line">   （内容盒子高度 -  文档高度） /  (文档高度 - 滚动条的高度)   * 滚动条移动的数值</div><div class="line">98. 只要事件对父元素没有什么影响 一般来说是不用阻止事件冒泡的，另外我们很多时候.事件直接绑定在父级上，当点击子级的时候，就是利用冒泡原理来触发父级的事件，所以并不是所有事件都要取消冒泡的，这个要依靠业务场景具体分析。</div><div class="line">99. 以e为参数的函数一般是以回调函数的形式被调用的。也就是在event发生的时候回调.调用的时候 e 就包含了发生事件的具体内容。</div></pre></td></tr></table></figure>
-<pre><code>function func(e){
-    e = e || window.event;
-    ... ...
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">    这样写的好处就是保证 e 不会为 undefined。window.event 总是有的。</div><div class="line">100. 拖拽限定范围用Math函数替代if...else...方法</div></pre></td></tr></table></figure>
+<li><p>首字母下沉css样式 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">h1 + p::first-letter &#123;</div><div class="line">    font-family:times, serif; </div><div class="line">    font-size:-90px; </div><div class="line">    float:left; line-height:.65;</div><div class="line">    padding:.085em 3px 0 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>首字母下沉效果做完了。可是，我希望大号首字母到小号正文之间有一个过渡，所<br>以需要把段落第一行的文本变成小型大写字母。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">h1 + p::first-line &#123;</div><div class="line">        font-variant:small-caps; </div><div class="line">        letter-spacing:.15em;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>css的加号 邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。<br>导航条\<a\>标签让列表行可以点击</a\></p>
+<pre><code>`.list1 a {display:block; padding:3px 10px;}` 设置内边距 显示为块元素
+`.list1 li + li a {border-left:1px solid #aaa;}` 第一个li标签没有左边框样
+式。
+</code></pre></li>
+<li><code>getBoundingClientRect()</code>注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。</li>
+<li>当属性名是小而连续的整数时,使用数组,否则使用对象.</li>
+<li>滚动条移动的高度与文档向上滚动的高度应该不是一样的，应该是<br>（内容盒子高度 -  文档高度） /  (文档高度 - 滚动条的高度)   * 滚动条移动的数值</li>
+<li>只要事件对父元素没有什么影响 一般来说是不用阻止事件冒泡的，另外我们很多时候.事件直接绑定在父级上，当点击子级的时候，就是利用冒泡原理来触发父级的事件，所以并不是所有事件都要取消冒泡的，这个要依靠业务场景具体分析。</li>
+<li><p>以e为参数的函数一般是以回调函数的形式被调用的。也就是在event发生的时候回调.调用的时候 e 就包含了发生事件的具体内容。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">        function func(e)&#123;</div><div class="line">            e = e || window.event;</div><div class="line">            ... ...</div><div class="line">        &#125;</div><div class="line">    ```    </div><div class="line">    这样写的好处就是保证 e 不会为 undefined。window.event 总是有的。</div><div class="line">100. 拖拽限定范围用Math函数替代if...else...方法</div></pre></td></tr></table></figure>
 <pre><code>instace.moveElement.style.left = Math.min( Math.max((e.pageX -      instace.mouseOffsetLeft), 0), maxX) + &apos;px&apos;;
 instace.moveElement.style.top = Math.min( Math.max((e.pageY   - instace.mouseOffsetTop), 0), maxY) + &apos;px&apos;;
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">101. IE的content部分包含了 border 和 pading;IE8以下浏览器的盒模型中定义的元素的宽高不包括内边距和边框.</div><div class="line">102. 正则表达式中字符类外部使用点号,必须对点号转义”\.” </div><div class="line">103. call方法实质上是调用Function.prototype.call方法.</div><div class="line">104. 原型对象的作用，就是定义所有实例对象共享的属性和方法。这也是它被称为原型对象的含义，而实例对象可以视作从原型对象衍生出来的子对象。</div><div class="line">    instanceof运算符只能用于对象，不适用原始类型的值。</div><div class="line">105. 函数简写</div></pre></td></tr></table></figure>
