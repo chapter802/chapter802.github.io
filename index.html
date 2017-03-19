@@ -497,12 +497,12 @@
 <li>当属性名是小而连续的整数时,使用数组,否则使用对象.</li>
 <li>滚动条移动的高度与文档向上滚动的高度应该不是一样的，应该是<br>（内容盒子高度 -  文档高度） /  (文档高度 - 滚动条的高度)   * 滚动条移动的数值</li>
 <li>只要事件对父元素没有什么影响 一般来说是不用阻止事件冒泡的，另外我们很多时候.事件直接绑定在父级上，当点击子级的时候，就是利用冒泡原理来触发父级的事件，所以并不是所有事件都要取消冒泡的，这个要依靠业务场景具体分析。</li>
-<li><p>以e为参数的函数一般是以回调函数的形式被调用的。也就是在event发生的时候回调.调用的时候 e 就包含了发生事件的具体内容。   </p>
+<li><p>以e为参数的函数一般是以回调函数的形式被调用的。也就是在event发生的时候回调.调用的时候 e 就包含了发生事件的具体内容。 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function func(e)&#123;</div><div class="line">        e = e || window.event;</div><div class="line">        ... ...</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>这样写的好处就是保证 e 不会为 undefined。window.event 总是有的。</p>
 </li>
 <li><p>拖拽限定范围用Math函数替代if…else…方法 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">instace.moveElement.style.left = Math.min( Math.max((e.pageX -      instace.mouseOffsetLeft), 0), maxX) + &apos;px&apos;;</div><div class="line">instace.moveElement.style.top = Math.min( Math.max((e.pageY   - instace.mouseOffsetTop), 0), maxY) + &apos;px&apos;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">instace.moveElement.style.left = Math.min( Math.max((e.pageX - instace.mouseOffsetLeft), 0), maxX) + &apos;px&apos;;</div><div class="line">instace.moveElement.style.top = Math.min( Math.max((e.pageY - instace.mouseOffsetTop), 0), maxY) + &apos;px&apos;;</div></pre></td></tr></table></figure>
 </li>
 <li><p>IE的content部分包含了 border 和 pading;IE8以下浏览器的盒模型中定义的元素的宽高不包括内边距和边框.</p>
 </li>
