@@ -468,26 +468,26 @@
 <li>导航下拉菜单 淡入淡出:</li>
 </ol>
 <pre><code>.nav.menu li ul { 
-          opacity:0; visibility:hidden; // hides drop-down 
-          position:absolute; // position relative to parent menu
-          left:0;   //aligns left of sub-menu to parent
-          top:100%; // aligns bottom of sub-menu to parent         -webkit-transition: 1s all; //sets up transition of opacity and     visibility
-          -moz-transition: 1s all;
-          transition: 1s all;
-       }
-       nav.menu li:hover &gt; ul { 
-          opacity:1; 
-          visibility:visible;
-       }
-       nav.menu li li {
-          float:none; // kills inherited float - makes list stack
-       }
-       .no-csstransitions nav.menu li ul { 
-          visibility:visible;
-          opacity:1;
-          display:none; 
-       }  
-       .no-csstransitions nav.menu li:hover &gt; ul { display:block;}
+      opacity:0; visibility:hidden; // hides drop-down 
+      position:absolute; // position relative to parent menu
+      left:0;   //aligns left of sub-menu to parent
+      top:100%; // aligns bottom of sub-menu to parent         -webkit-transition: 1s all; //sets up transition of opacity and     visibility
+      -moz-transition: 1s all;
+      transition: 1s all;
+   }
+   nav.menu li:hover &gt; ul { 
+      opacity:1; 
+      visibility:visible;
+   }
+   nav.menu li li {
+      float:none; // kills inherited float - makes list stack
+   }
+   .no-csstransitions nav.menu li ul { 
+      visibility:visible;
+      opacity:1;
+      display:none; 
+   }  
+   .no-csstransitions nav.menu li:hover &gt; ul { display:block;}
 </code></pre>
           
         
