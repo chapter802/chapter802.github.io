@@ -370,7 +370,7 @@
 <li>栈数据结构的访问规则是LIFO(后进先出)，而队列数据结构的访问规则是FIFO(先进先出)。push()从末端插入；pop()从末端移除弹出，shift()从第一项移除；unshift()在数组前端插入并返回新数组的长度。</li>
 <li>指定变量可以是数组元素，也可以是对象的属性。</li>
 <li>通过Document类型调用querySelector()方法时，会在文档元素的范围内查找匹配的元素。而通过Element类型调用querySelector()方法时，只会在该元素后代元素的范围内查找匹配的元素.</li>
-<li>IE给document添加了compatMode属性,在标准模式下,document.compatMode的值等于”CSS1Compat”,在混杂模式下,document.compatMode的值为”BackCompat”.</li>
+<li>IE给document添加了compatMode属性,在标准模式下,document.compatMode的值等于”CSS1Compat”,在混杂模式下,document.compatMode的值为”BackCompat”。</li>
 <li>lastIndex 属性用于规定下次匹配的起始位置。</li>
 <li>由于函数是对象，因此函数名实际上也是一个指向函数的指针。</li>
 <li>caller属性：严格模式下，不能为函数的caller属性赋值，否则会导致错误。</li>
@@ -383,12 +383,12 @@
 </li>
 <li><p>使用new调用基本包装类型的构造函数，与直接调用同名的转型函数是不一样的。</p>
 </li>
-<li>substring(start, stop) 方法用于提取字符串中介于两个指定下标之间的字符.<br>注：substring() 方法返回的子串包括 start 处的字符，但不包括 stop 处的字符。 </li>
+<li>substring(start, stop) 方法用于提取字符串中介于两个指定下标之间的字符。<br>注：substring() 方法返回的子串包括 start 处的字符，但不包括 stop 处的字符。 </li>
 <li>利用Math.random()从某个整数范围内随机取一个值。公式：</li>
 <li>nodetype属性值  元素：1  ，属性：2  ， 文本：3  。<br>语法：elementNode.nodeType</li>
 <li>！！ 表示非非跟没有叹号的效果一样，但是用两个叹号可以做类型转换。！！是一个逻辑操作，不论它的后面接的什么数值，他的结果会被强制转换为布尔类型，之所以用两个叹号，主要为了让结果不会逻辑反过来。</li>
 <li>直接把函数作为属性访问会导致JavaScript错误。</li>
-<li>浏览器五大呈现引擎：IE, Gecko, Webkit, KHTML, opera. </li>
+<li>浏览器五大呈现引擎：IE, Gecko, Webkit, KHTML, opera。 </li>
 <li>原型链作为实现继承的基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。</li>
 <li><p>借用构造函数也叫做伪造函数或者经典继承。有个很大的优势即可以在子类型构造函数中向超类型函数传递参数。使用call()或者apply()方法。<br>例子： <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;<span class="keyword">this</span>.Object= properties;&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>)</span>&#123;SuperType.call(<span class="keyword">this</span>)&#125;</div></pre></td></tr></table></figure></p>
 </li>
@@ -396,11 +396,11 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType, superType</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> prototype = <span class="built_in">Object</span>(superType.prototype);  <span class="comment">//创建对象</span></div><div class="line">    prototype.constructor = subType;  <span class="comment">//增强对象</span></div><div class="line">    subtype.prototype = prototype;  <span class="comment">//指定对象</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>示例中的inheritPrototype()函数实现了寄生组合式继承的最简单形式。这个函数接收两个参数：子类型构造函数和超类型构造函数。在函数内部，第一步是创建超类型原型的一个副本。第二步是为创建的副本添加constructor属性，从而弥补因重写原型而失去的默认的constructor属性。最后一步，将新创建的对象（即副本）赋值给子类型的原型。</p>
 </li>
-<li>innerText与textContent//Firefox  返回的内容不完全一样.<br>例如: innerText会忽略行内的样式和脚本,而textContent则会像返回其他文本一样返回行内的样<br>式和脚本代码.</li>
-<li>js访问元素的样式:因为float是javascript里的保留字,”DOM2级样式”规范规定样式上对应的属性名是cssFloat; 而IE支持的是styleFloat.</li>
+<li>innerText与textContent//Firefox  返回的内容不完全一样。<br>例如: innerText会忽略行内的样式和脚本,而textContent则会像返回其他文本一样返回行内的样<br>式和脚本代码。</li>
+<li>js访问元素的样式:因为float是javascript里的保留字,”DOM2级样式”规范规定样式上对应的属性名是cssFloat; 而IE支持的是styleFloat。</li>
 <li>标准模式下,所有度量值都必须指定一个度量单位.在混杂模式下,可以将style.width设置为”20”,浏览器会假设它是”20px”。</li>
 <li>arguments.callee方法不能在严格模式下使用。</li>
-<li>DOM2级事件定义了两个方法,用于处理指定和删除事件处理程序的操作:addEventListener()和removeEventListener().他们接受三个参数:要处理的事件名,作为事件处理程序的函数和一个布尔值.最后这个布尔值如果是true,表示在捕获阶段调用事件处理程序;如果是false,表示在冒泡阶段调用事件处理程序.IE8之前有两个类似的方法attachEvent()和detachEvent(),只支持冒泡.</li>
+<li>DOM2级事件定义了两个方法,用于处理指定和删除事件处理程序的操作:addEventListener()和removeEventListener().他们接受三个参数:要处理的事件名,作为事件处理程序的函数和一个布尔值.最后这个布尔值如果是true,表示在捕获阶段调用事件处理程序;如果是false,表示在冒泡阶段调用事件处理程序.IE8之前有两个类似的方法attachEvent()和detachEvent(),只支持冒泡。</li>
 <li>addHandler()接收三个参数:要操作的元素, 事件名称,事件处理程序函数。</li>
 <li>匿名函数最大的用途是创建闭包（这是JavaScript语言的特性之一），并且还可以构建命名空间，以减少全局变量的使用。</li>
 <li><p>获取节点的方法</p>
@@ -451,14 +451,14 @@
 <li>导航条啊\<a\>标签让列表行可以点击<br>  <code>.list1 a {display:block; padding:3px 10px;}</code>设置内边距 显示为块元素</a\></li>
 <li><code>.list1 li + li a {border-left:1px solid #aaa;}</code> 第一个li标签没有左边框样式<br> <code>li:last-child a {border-right-style:none;}</code> </li>
 <li>中间点号编码  • → &amp;#8226;  上右单引号编码 ’ → &amp;#8217; </li>
-<li><label>标签  for属性与id属性通过相同的值关联起来后,用户点击标注文本也可以选择单选按钮和复选框. </label></li>
+<li><label>标签  for属性与id属性通过相同的值关联起来后,用户点击标注文本也可以选择单选按钮和复选框。</label></li>
 <li>border属性<code>border-radius:20px 0px 20px 0px; /* 顺序: 左上 右上 右下 左下*/</code><br><code>box-shadow: h-shadow v-shadow blur spread color inset;</code></li>
 <li><p>导航下拉菜单 淡入淡出:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-class">.nav</span><span class="selector-class">.menu</span> <span class="selector-tag">li</span> <span class="selector-tag">ul</span> &#123; </div><div class="line">     <span class="attribute">opacity</span>:<span class="number">0</span>;</div><div class="line">     <span class="attribute">visibility</span>:hidden; <span class="comment">/* hides drop-down */</span></div><div class="line">     <span class="attribute">position</span>:absolute; <span class="comment">/* position relative to parent menu */</span></div><div class="line">     <span class="attribute">left</span>:<span class="number">0</span>; <span class="comment">/* aligns left of sub-menu to parent*/</span></div><div class="line">     <span class="attribute">top</span>:<span class="number">100%</span>; <span class="comment">/* aligns bottom of sub-menu to parent */</span></div><div class="line">     <span class="attribute">-webkit-transition</span>: <span class="number">1s</span> all; <span class="comment">/*sets up transition of opacity and visibility */</span></div><div class="line">     <span class="attribute">-moz-transition</span>: <span class="number">1s</span> all;</div><div class="line">     <span class="attribute">transition</span>: <span class="number">1s</span> all;</div><div class="line">     &#125;</div><div class="line"> <span class="selector-tag">nav</span><span class="selector-class">.menu</span> <span class="selector-tag">li</span><span class="selector-pseudo">:hover</span> &gt; <span class="selector-tag">ul</span> &#123; </div><div class="line">     <span class="attribute">opacity</span>:<span class="number">1</span>; </div><div class="line">     <span class="attribute">visibility</span>:visible;</div><div class="line">     &#125;</div><div class="line"><span class="selector-tag">nav</span><span class="selector-class">.menu</span> <span class="selector-tag">li</span> <span class="selector-tag">li</span> &#123;</div><div class="line">     <span class="attribute">float</span>:none; <span class="comment">/*kills inherited float - makes list stack*/</span></div><div class="line">     &#125;</div><div class="line"><span class="selector-class">.no-csstransitions</span> <span class="selector-tag">nav</span><span class="selector-class">.menu</span> <span class="selector-tag">li</span> <span class="selector-tag">ul</span> &#123; </div><div class="line">     <span class="attribute">visibility</span>:visible;</div><div class="line">     <span class="attribute">opacity</span>:<span class="number">1</span>;</div><div class="line">     <span class="attribute">display</span>:none; </div><div class="line">     &#125;  </div><div class="line"><span class="selector-class">.no-csstransitions</span> <span class="selector-tag">nav</span><span class="selector-class">.menu</span> <span class="selector-tag">li</span><span class="selector-pseudo">:hover</span> &gt; <span class="selector-tag">ul</span> &#123;</div><div class="line">     <span class="attribute">display</span>:block;</div><div class="line">     &#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>响应式设计包含三方面: 媒体查询, 流式布局, 弹性图片.媒体查询可以用两种方式来写: @media规则和 <link>标签的media属性。 </p>
 </li>
-<li>通过触摸屏幕其他地方来调用jQuery的noop函数就可以关闭掉下拉菜单了<br>(function(){ $(window).on(‘touchstart’ ,$.noop);})();<br>如果不用jQuery,在<body>标签上添加 ontouchstart=“ ” 也会在用户触摸屏幕其他地方时触发<br>JavaScript运行,从而关闭菜单.</body></li>
+<li>通过触摸屏幕其他地方来调用jQuery的noop函数就可以关闭掉下拉菜单了<br>(function(){ $(window).on(‘touchstart’ ,$.noop);})();<br>如果不用jQuery,在<body>标签上添加 ontouchstart=“ ” 也会在用户触摸屏幕其他地方时触发<br>JavaScript运行,从而关闭菜单。</body></li>
 <li><p>IE浏览器代码块 只有IE才会执行 </p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if IE 8]&gt; &lt;!-- IE条件注释--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">src</span>=<span class="string">"ie_only.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> /&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">![endif]--</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
@@ -484,7 +484,7 @@
 <li><code>getBoundingClientRect()</code>注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。</li>
 <li>当属性名是小而连续的整数时,使用数组,否则使用对象。</li>
 <li>滚动条移动的高度与文档向上滚动的高度应该不是一样的，应该是<br>（内容盒子高度 -  文档高度） /  (文档高度 - 滚动条的高度)   * 滚动条移动的数值</li>
-<li>只要事件对父元素没有什么影响 一般来说是不用阻止事件冒泡的，另外我们很多时候.事件直接绑定在父级上，当点击子级的时候，就是利用冒泡原理来触发父级的事件，所以并不是所有事件都要取消冒泡的，这个要依靠业务场景具体分析。</li>
+<li>只要事件对父元素没有什么影响，一般来说是不用阻止事件冒泡的，另外我们很多时候.事件直接绑定在父级上，当点击子级的时候，就是利用冒泡原理来触发父级的事件，所以并不是所有事件都要取消冒泡的，这个要依靠业务场景具体分析。</li>
 <li><p>以e为参数的函数一般是以回调函数的形式被调用的。也就是在event发生的时候回调.调用的时候 e 就包含了发生事件的具体内容。 </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">        e = e || <span class="built_in">window</span>.event;</div><div class="line">        ... ...</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>这样写的好处就是保证 e 不会为 undefined。window.event 总是有的。</p>
@@ -492,7 +492,7 @@
 <li><p>拖拽限定范围用Math函数替代if…else…方法 </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">instace.moveElement.style.left = <span class="built_in">Math</span>.min( <span class="built_in">Math</span>.max((e.pageX - instace.mouseOffsetLeft), <span class="number">0</span>), maxX) + <span class="string">'px'</span>;</div><div class="line">instace.moveElement.style.top = <span class="built_in">Math</span>.min( <span class="built_in">Math</span>.max((e.pageY - instace.mouseOffsetTop), <span class="number">0</span>), maxY) + <span class="string">'px'</span>;</div></pre></td></tr></table></figure>
 </li>
-<li><p>IE的content部分包含了 border 和 pading;IE8以下浏览器的盒模型中定义的元素的宽高不包括内边距和边框.</p>
+<li><p>IE的content部分包含了 border 和 pading;IE8以下浏览器的盒模型中定义的元素的宽高不包括内边距和边框。</p>
 </li>
 <li>正则表达式中字符类外部使用点号,必须对点号转义”.” </li>
 <li>call方法实质上是调用Function.prototype.call方法。</li>
@@ -505,7 +505,7 @@
 <li>jquery通过id筛选元素比通过类筛选元素效率高。</li>
 <li>工厂模式主要好处就是可以消除对象间的耦合，通过使用工程方法而不是new关键字。将所有实例化的代码集中在一个位置防止代码重复。<br>缺点就是大多数类最好使用new关键字和构造函数，可以让代码更加简单易读。而不必去查看工厂方法<br>来知道。</li>
 <li>在使用attachEvent()方法的情况下，事件处理程序会在全局作用域中运行，因此this等于window。 </li>
-<li>在DOM中，<code>addEventListener()</code>和<code>removeEventListener()</code>用来分配和移除事件处理函数，与IE不同的是，这些方法需要三个参数：事件名称，要分配的函数和处理函数是用于冒泡阶段(false)还是捕获阶段(true)，默认为冒泡阶段false.<h5 id="jQuery基础教程部分-Start"><a href="#jQuery基础教程部分-Start" class="headerlink" title="jQuery基础教程部分 Start"></a>jQuery基础教程部分 Start</h5></li>
+<li>在DOM中，<code>addEventListener()</code>和<code>removeEventListener()</code>用来分配和移除事件处理函数，与IE不同的是，这些方法需要三个参数：事件名称，要分配的函数和处理函数是用于冒泡阶段(false)还是捕获阶段(true)，默认为冒泡阶段false。<h5 id="jQuery基础教程部分-Start"><a href="#jQuery基础教程部分-Start" class="headerlink" title="jQuery基础教程部分 Start"></a>jQuery基础教程部分 Start</h5></li>
 <li>带着圆括号,函数会被立即调用;没有圆括号,函数名就只是函数的标识符或函数引用,可以用于在将来再调用函数。</li>
 <li>.onload属性一次只能保存对一个函数的引用,所以不能在现有的行为基础上再增加新行为。 </li>
 <li><code>$(document).ready(function() { //代码 }); 相当于 $(function() { //代码 });</code></li>
@@ -742,6 +742,15 @@
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>
