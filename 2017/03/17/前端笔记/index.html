@@ -103,7 +103,7 @@ DOM 0级事件后面的事件会覆盖前面的事件；DOM 2级事件则不会�
 indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。注释：indexOf() 方法对大小写敏感！注释：如果要检索的字符串值没有出现，则该方法返回 -1。
 apply:方法能劫持另外一个对象的方法，继承另外一个对象的属性。
 appenC">
-<meta property="og:updated_time" content="2017-03-20T02:58:58.000Z">
+<meta property="og:updated_time" content="2017-03-21T15:22:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="前端笔记
@@ -368,11 +368,12 @@ appenC">
 <li>Because parseFloat() parses only decimal values, there is no radix mode.<br> Modulus: ➤  If the dividend is a finite number and the divisor is an infinite<br> number, then the result is the dividend.</li>
 <li>The equal operator in ECMAScript is the double equal sign (==), and it    returns true if the operands are equal.</li>
 <li>For-in语句是一种精准的迭代语句，可以用来枚举对象的属性。语法：for (property in expression) statement      for(变量 in 对象) {执行代码}</li>
-<li><p>Document.write()输出嵌套函数换行示例： </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;br&gt;"</span>);</div><div class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;br /&gt;"</span>);</div><div class="line"><span class="built_in">document</span>.write(diff(<span class="number">8</span>, <span class="number">7</span>)+<span class="string">"&lt;br/&gt;"</span>);</div><div class="line">注：标准是&lt;br /&gt;  不标准的&lt;br&gt; &lt;br/&gt;</div></pre></td></tr></table></figure>
+<li>Document.write()输出嵌套函数换行示例： <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;br&gt;"</span>);</div><div class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;br /&gt;"</span>);</div><div class="line"><span class="built_in">document</span>.write(diff(<span class="number">8</span>, <span class="number">7</span>)+<span class="string">"&lt;br/&gt;"</span>);</div><div class="line">注：标准是&lt;br /&gt;  不标准的&lt;br&gt; &lt;br/&gt;</div></pre></td></tr></table></figure>
 </li>
-<li><p>即使在函数内部修改了参数的值，但原始的引用仍然保持未变，实际上，在函   数内部重写变量的属性时，这个变量引用的就是一个局部对象了，而这个局部对象会在函数执行完毕后立即被销毁。     </p>
-</li>
+</ol>
+<a id="more"></a>    
+<ol>
+<li>即使在函数内部修改了参数的值，但原始的引用仍然保持未变，实际上，在函   数内部重写变量的属性时，这个变量引用的就是一个局部对象了，而这个局部对象会在函数执行完毕后立即被销毁。     </li>
 <li>函数参数也被当做变量来对待，因此其访问规则与执行环境中的其它变量相同。创建object实例：<code>var person = new Object();等价于 var person = {};</code><br>推荐使用：<code>var person = ();{name:”Nicholas”,age:29};</code><br>最后一个属性后面不能加逗号，加逗号会在IE7及更早版本和Opera浏览器中导致错误。</li>
 <li>方括号表示法： <code>person[“first name”] = “Nicholas”;</code>如果属性名中包含会导致语法错误的字符，或者属性名使用的是关键字或者保留字，也可以使用方括号表示法。<br>主要优点是可以通过变量来访问属性 <code>var propertyName = “name”;</code><br><code>alert(person[propertyName])</code>;注：推荐使用点表示法。</li>
 <li>如果不给join()方法传入任何值，或者传入undefined,则使用逗号作为分隔符。IE7及更早版<br>本会使用undefined作为分隔符。如果数组中的某一项的值为null或者undefined，那么该值在<br>join(), toString(), toLocaleString()和valueof()方法返回的结果以空字符串表示。</li>
