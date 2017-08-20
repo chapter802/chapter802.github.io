@@ -187,7 +187,7 @@ body {
   position: relative;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 2;
   color: #555;
   background: #f5f7f9;
 }
@@ -223,7 +223,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 20px 0 0;
+  margin: 20px 0 15px;
 }
 h1 {
   font-size: 22px;
@@ -274,8 +274,7 @@ h6 {
   }
 }
 p {
-  /*margin: 0 0 25px 0;*/
-  margin: 0;
+  margin: 0 0 25px 0;
 }
 a {
   color: #555;
@@ -1147,7 +1146,7 @@ pre .javascript .function {
 .posts-expand .post-body h4,
 .posts-expand .post-body h5,
 .posts-expand .post-body h6 {
-  /*padding-top: 10px;*/
+  padding-top: 10px;
 }
 .posts-expand .post-body h2 .header-anchor,
 .posts-expand .post-body h3 .header-anchor,
@@ -1686,7 +1685,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bb7436;
+  background: #65ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2854,4 +2853,17 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  line-height: 1.8;
+}
+.posts-expand .post-body h2,
+.posts-expand .post-body h3,
+.posts-expand .post-body h4,
+.posts-expand .post-body h5,
+.posts-expand .post-body h6 {
+  padding-top: 0;
+}
+p {
+  margin: 0;
 }
