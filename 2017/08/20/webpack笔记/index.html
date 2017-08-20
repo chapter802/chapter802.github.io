@@ -1,0 +1,826 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="notes," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="webpack常用插件
+html-webpack-plugin
+clean-webpack-plugin //文件管理插件
+
+source map查错
+devtool:‘inline-source-map’   //位置 webpack.config.js
+
+代码自动化编译
+使用观察模式 
+方法: package.json 文件script部分添加&amp;quot;watch&amp;quot;: &amp;quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack笔记">
+<meta property="og:url" content="http://zexia.me/2017/08/20/webpack笔记/index.html">
+<meta property="og:site_name" content="泽夏' Notes">
+<meta property="og:description" content="webpack常用插件
+html-webpack-plugin
+clean-webpack-plugin //文件管理插件
+
+source map查错
+devtool:‘inline-source-map’   //位置 webpack.config.js
+
+代码自动化编译
+使用观察模式 
+方法: package.json 文件script部分添加&amp;quot;watch&amp;quot;: &amp;quot;">
+<meta property="og:updated_time" content="2017-08-20T07:49:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack笔记">
+<meta name="twitter:description" content="webpack常用插件
+html-webpack-plugin
+clean-webpack-plugin //文件管理插件
+
+source map查错
+devtool:‘inline-source-map’   //位置 webpack.config.js
+
+代码自动化编译
+使用观察模式 
+方法: package.json 文件script部分添加&amp;quot;watch&amp;quot;: &amp;quot;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zexia.me/2017/08/20/webpack笔记/"/>
+
+
+
+
+
+  <title> webpack笔记 | 泽夏' Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3aa33609d6b6beb7e347fa62c9f90f30";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">泽夏' Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">iSummer</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zexia.me/2017/08/20/webpack笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泽夏' Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                webpack笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-20T12:30:39+08:00">
+                2017-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/20/webpack笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/20/webpack笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="webpack常用插件"><a href="#webpack常用插件" class="headerlink" title="webpack常用插件"></a>webpack常用插件</h3><ul>
+<li>html-webpack-plugin</li>
+<li>clean-webpack-plugin //文件管理插件</li>
+</ul>
+<h3 id="source-map查错"><a href="#source-map查错" class="headerlink" title="source map查错"></a>source map查错</h3><ul>
+<li><code>devtool:‘inline-source-map’   //位置 webpack.config.js</code></li>
+</ul>
+<h3 id="代码自动化编译"><a href="#代码自动化编译" class="headerlink" title="代码自动化编译"></a>代码自动化编译</h3><ol>
+<li>使用观察模式 <ul>
+<li>方法: package.json 文件script部分添加<code>&quot;watch&quot;: &quot;webpack --watch&quot;</code></li>
+</ul>
+</li>
+<li>使用 webpack-dev-server <ul>
+<li>方法: 修改webpack.config.js告诉开发服务器(dev server)，在哪里查找文件：<code>devServer:{contentBase: &#39;./dist&#39;},</code> 在pakage.json文件script部分添加<code>&quot;start&quot;: &quot;webpack-dev-server --open&quot;</code>,然后直接运行<code>npm start</code></li>
+</ul>
+</li>
+<li>使用 webpack-dev-middleware</li>
+</ol>
+<h3 id="模块热替换-只适合生产环境"><a href="#模块热替换-只适合生产环境" class="headerlink" title="模块热替换 只适合生产环境"></a>模块热替换 只适合生产环境</h3><h3 id="生产环境构建"><a href="#生产环境构建" class="headerlink" title="生产环境构建"></a>生产环境构建</h3><ol>
+<li><p>自动方式</p>
+<ul>
+<li><p>webpack-p相当于<code>webpack --optimize-minimize --define process.env.NODE_ENV=&quot;&#39;production&#39;&quot;</code></p>
+<ul>
+<li>用UglifyJsPlugin压缩js,</li>
+<li>运行<a href="https://doc.webpack-china.org/plugins/loader-options-plugin/" target="_blank" rel="external">LoaderOptionsPlugin</a>,</li>
+<li>设置 NodeJS 环境变量，触发某些 package 包，以不同的方式进行编译。</li>
+</ul>
+<a id="more"></a></li>
+</ul>
+</li>
+<li><p>手动方式</p>
+<ul>
+<li><p>定义两个完全独立的配置文件<br><strong>webppack.dev.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">devtool</span>: <span class="string">'cheap-module-source-map'</span>,</div><div class="line"></div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">path</span>: path.join(__dirname, <span class="string">'/../dist/assets'</span>),</div><div class="line">    <span class="attr">filename</span>: <span class="string">'[name].bundle.js'</span>,</div><div class="line">    <span class="attr">publicPath</span>: publicPath,</div><div class="line">    <span class="attr">sourceMapFilename</span>: <span class="string">'[name].map'</span></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">devServer</span>: &#123;</div><div class="line">    <span class="attr">port</span>: <span class="number">7777</span>,</div><div class="line">    <span class="attr">host</span>: <span class="string">'localhost'</span>,</div><div class="line">    <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">noInfo</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">stats</span>: <span class="string">'minimal'</span>,</div><div class="line">    <span class="attr">publicPath</span>: publicPath</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>webpack.prod.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">path</span>: path.join(__dirname, <span class="string">'/../dist/assets'</span>),</div><div class="line">    <span class="attr">filename</span>: <span class="string">'[name].bundle.js'</span>,</div><div class="line">    <span class="attr">publicPath</span>: publicPath,</div><div class="line">    <span class="attr">sourceMapFilename</span>: <span class="string">'[name].map'</span></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="keyword">new</span> webpack.LoaderOptionsPlugin(&#123;</div><div class="line">      <span class="attr">minimize</span>: <span class="literal">true</span>,</div><div class="line">      <span class="attr">debug</span>: <span class="literal">false</span></div><div class="line">    &#125;),</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</div><div class="line">      <span class="attr">beautify</span>: <span class="literal">false</span>,</div><div class="line">      <span class="attr">mangle</span>: &#123;</div><div class="line">        <span class="attr">screw_ie8</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">keep_fnames</span>: <span class="literal">true</span></div><div class="line">      &#125;,</div><div class="line">      <span class="attr">compress</span>: &#123;</div><div class="line">        <span class="attr">screw_ie8</span>: <span class="literal">true</span></div><div class="line">      &#125;,</div><div class="line">      <span class="attr">comments</span>: <span class="literal">false</span></div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>pakage.json</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">...</div><div class="line"><span class="string">"build:dev"</span>: <span class="string">"webpack --env=dev --progress --profile --colors"</span>,</div><div class="line"><span class="string">"build:dist"</span>: <span class="string">"webpack --env=prod --progress --profile --colors"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>webpack.config.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">env</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">require</span>(<span class="string">`./webpack.<span class="subst">$&#123;env&#125;</span>.js`</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>了解 <a href="https://doc.webpack-china.org/api/cli/#common-options" target="_blank" rel="external">env</a></p>
+<ul>
+<li>高级途径 <a href="https://doc.webpack-china.org/guides/production/" target="_blank" rel="external">详见&gt;&gt;</a><br>一个基本配置文件，包含两个环境通用的配置，然后将其与特定于环境的配置用 <a href="https://github.com/survivejs/webpack-merge" target="_blank" rel="external">webpack-merge</a> 进行合并。这将为每个环境产生完整配置，并防止重复公共部分代码。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Tree-Shaking"><a href="#Tree-Shaking" class="headerlink" title="Tree Shaking"></a>Tree Shaking</h3><ul>
+<li>从maths.js 引入cube方法 <code>import {cube} from &#39;./maths.js&#39;;</code></li>
+</ul>
+<h3 id="代码分离"><a href="#代码分离" class="headerlink" title="代码分离"></a>代码分离</h3><ol>
+<li>入口起点：使用 <a href="https://doc.webpack-china.org/configuration/entry-context" target="_blank" rel="external">entry</a> 选项手动分离代码。<br> 缺点: 会引起代码重复, 动态分离代码缺乏弹性.</li>
+<li>防止重复：使用 <a href="https://doc.webpack-china.org/plugins/commons-chunk-plugin" target="_blank" rel="external">CommonsChunkPlugin</a> 去重和分离 chunk。<ul>
+<li><a href="https://doc.webpack-china.org/plugins/extract-text-webpack-plugin" target="_blank" rel="external">ExtractTextPlugin</a> : 分离CSS</li>
+<li><a href="https://doc.webpack-china.org/loaders/bundle-loader" target="_blank" rel="external">bundle-loader</a> : 分离代码,懒加载结果包</li>
+<li><a href="https://github.com/gaearon/promise-loader" target="_blank" rel="external">promise-loader</a> : 类似bundle-loader,用promises方法</li>
+</ul>
+</li>
+<li><p>动态导入：通过模块的内联函数调用来分离代码。</p>
+<ul>
+<li><p>AsyncFunciton <code>new AsyncFunction([arg1[, arg2[, ...argN]],] functionBody)</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolveAfter2Seconds</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      resolve(x);</div><div class="line">    &#125;, <span class="number">2000</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> AsyncFunction = <span class="built_in">Object</span>.getPrototypeOf(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;).constructor;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> AsyncFunction(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'return await resolveAfter2Seconds(a) + await resolveAfter2Seconds(b);'</span>);</div><div class="line">a(<span class="number">10</span>, <span class="number">20</span>).then(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(v); <span class="comment">// prints 30 after 4 seconds</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="webpack常用工具"><a href="#webpack常用工具" class="headerlink" title="webpack常用工具"></a>webpack常用工具</h3><ul>
+<li>gulp-autoprefixer</li>
+<li>babel-preset-es2015</li>
+<li>babel-cli //用于命令行转码  转码执行命令  npm run build </li>
+<li>babel-register //改写require命令，先注册再使用</li>
+<li>babel-core //调用babel的api</li>
+<li>babel-polyfill  //babel默认只转化js句法，不转换新的API，如果使用，需安装babel-polyfill  脚本头部需加<code>import &#39;babel-polyfill&#39;</code>或者<code>require(&#39;babel-polyfill&#39;)</code></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/notes/" rel="tag"># notes</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/17/前端笔记/" rel="next" title="前端笔记">
+                <i class="fa fa-chevron-left"></i> 前端笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/20/webpack笔记/"
+           data-title="webpack笔记" data-url="http://zexia.me/2017/08/20/webpack笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Andy" />
+          <p class="site-author-name" itemprop="name">Andy</p>
+           
+              <p class="site-description motion-element" itemprop="description">千里之行,始于足下.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chapter802" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/sailingheart" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack常用插件"><span class="nav-number">1.</span> <span class="nav-text">webpack常用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#source-map查错"><span class="nav-number">2.</span> <span class="nav-text">source map查错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码自动化编译"><span class="nav-number">3.</span> <span class="nav-text">代码自动化编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块热替换-只适合生产环境"><span class="nav-number">4.</span> <span class="nav-text">模块热替换 只适合生产环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生产环境构建"><span class="nav-number">5.</span> <span class="nav-text">生产环境构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-Shaking"><span class="nav-number">6.</span> <span class="nav-text">Tree Shaking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码分离"><span class="nav-number">7.</span> <span class="nav-text">代码分离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack常用工具"><span class="nav-number">8.</span> <span class="nav-text">webpack常用工具</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zexia"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+<script src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>
