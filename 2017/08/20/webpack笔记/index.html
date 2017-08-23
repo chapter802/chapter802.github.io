@@ -121,7 +121,7 @@ devtool:‘inline-source-map’   //位置 webpack.config.js
 
 代码自动化编译
 使用观察模式">
-<meta property="og:updated_time" content="2017-08-23T08:36:16.000Z">
+<meta property="og:updated_time" content="2017-08-23T14:17:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack笔记">
 <meta name="twitter:description" content="说明字体颜色
@@ -577,7 +577,38 @@ devtool:‘inline-source-map’   //位置 webpack.config.js
 <h4 id="UseEntry"><a href="#UseEntry" class="headerlink" title="UseEntry"></a>UseEntry</h4><p>必须有一个 loader 属性是字符串。它使用 loader 解析选项（resolveLoader），相对于配置中的 context 来解析。<br>示例: </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">loader</span>: <span class="string">"css-loader"</span>,</div><div class="line">  <span class="attr">options</span>: &#123;</div><div class="line">    <span class="attr">modules</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><b style="color: #F79057">注: </b> webpack 需要生成资源和所有 loader 的独立模块标识，包括选项。它尝试对选项对象使用 JSON.stringify。</p>
-<h3 id="解析-Resolve"><a href="#解析-Resolve" class="headerlink" title="解析(Resolve)"></a>解析(Resolve)</h3><hr>
+<h3 id="解析-Resolve"><a href="#解析-Resolve" class="headerlink" title="解析(Resolve)"></a>解析(Resolve)</h3><p>设置模块如何被解析。</p>
+<ul>
+<li><p><b style="color: #ED7578">resolve.alias</b><br>创建 import 或 require 的别名，来确保模块引入变得更简单。<br>例如，一些位于 src/ 文件夹下的常用模块：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alias: &#123;</div><div class="line"> <span class="attr">Utilities</span>: path.resolve(__dirname, <span class="string">'src/utilities/'</span>),</div><div class="line"> <span class="attr">Templates</span>: path.resolve(__dirname, <span class="string">'src/templates/'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  现在，替换「在导入时使用相对路径」这种方式，就像这样：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Utility <span class="keyword">from</span> <span class="string">'../../utilities/utility'</span>;</div></pre></td></tr></table></figure>
+<p>  使用别名：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Utility <span class="keyword">from</span> <span class="string">'Utilities/utility'</span>;</div></pre></td></tr></table></figure>
+<p>  也可以在给定对象的键后的末尾添加 $，以表示精准匹配：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">alias: &#123;</div><div class="line">  <span class="attr">xyz$</span>: path.resolve(__dirname, <span class="string">'path/to/file.js'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  产生以下结果：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Test1 <span class="keyword">from</span> <span class="string">'xyz'</span>; <span class="comment">// 精确匹配，所以 path/to/file.js 被解析和导入</span></div><div class="line"><span class="keyword">import</span> Test2 <span class="keyword">from</span> <span class="string">'xyz/file.js'</span>; <span class="comment">// 精确匹配，触发普通解析</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>resolve.enforceExtension   默认值为false<br>如果是 true，将不允许无扩展名(extension-less)文件。默认如果 ./foo 有 .js 扩展，require(‘./foo’) 可以正常运行。但如果启用此选项，只有 require(‘./foo.js’) 能够正常工作。</li>
+<li>resolve.enforceModuleExtension  默认值为false<br>对模块是否需要使用的扩展（例如 loader）。</li>
+<li><p>resolve.extensions  默认值为：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extensions: [<span class="string">".js"</span>, <span class="string">".json"</span>]</div></pre></td></tr></table></figure>
+<p> 自动解析确定的扩展。能够使用户在引入模块时不带扩展:</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> File <span class="keyword">from</span> <span class="string">'../path/to/file'</span></div></pre></td></tr></table></figure>
+<p> <b style="color: #F79057">注: </b> 使用此选项，会覆盖默认数组 webpack 将不再尝试使用默认扩展来解析模块。对于使用其扩展导入的模块，例如，import SomeFile from “./somefile.ext”，要想正确的解析，一个包含“*”的字符串必须包含在数组中。</p>
+<ul>
+<li><p>resolve.mainFields<br>当从 npm 包中导入模块时，此选项将决定在 package.json 中使用哪个字段导入模块。根据 webpack 配置中指定的 target 不同，默认值也会有所不同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mainFields: [<span class="string">"browser"</span>, <span class="string">"module"</span>, <span class="string">"main"</span>]</div></pre></td></tr></table></figure>
+<p>对于其他任意的 target（包括 node），默认值为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mainFields: [<span class="string">"module"</span>, <span class="string">"main"</span>]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
 <h2 id="webpack相关常用工具"><a href="#webpack相关常用工具" class="headerlink" title="webpack相关常用工具"></a>webpack相关常用工具</h2><ul>
 <li>gulp-autoprefixer</li>
 <li>babel-preset-es2015</li>
